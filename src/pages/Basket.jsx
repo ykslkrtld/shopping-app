@@ -9,8 +9,6 @@ const Basket = () => {
   return (
     <div>
       {basket.length > 0 ? (<FilledBasketTotal/> ) : (<EmptyBasketTotal/>)}
-      
-      
     </div>
   )
 }
