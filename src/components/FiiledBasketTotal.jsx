@@ -16,7 +16,7 @@ const FiiledBasketTotal = () => {
     const {basket} = useSelector((state) => state)
   return (
     <Container align="center">
-      <Grid container justifyContent="center" spacing={3}>
+      <Grid container justifyContent="center" spacing={3} mt={3}>
         {basket.map((item) => (
           <Grid key={item.id} item sm={6} md={4} lg={3}>
             <Card sx={{height:"100%", width:"18rem"}}>
