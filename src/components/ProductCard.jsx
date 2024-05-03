@@ -8,8 +8,13 @@ import Typography from "@mui/material/Typography";
 import { Container } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useDispatch, useSelector } from "react-redux";
+import { addToBasket } from "../store/basketReducer";
 
 export default function ProductCard({products}) {
+  const disPatch = useDispatch()
+  const {basket} = useSelector((state) => state)
+  console.log(basket)
   return (
     <Container align="center">
       <Typography variant="h3" color="red" m={3}>
@@ -39,7 +44,7 @@ export default function ProductCard({products}) {
                   {item.category}
                 </Typography>
               <CardActions>
-                <Button variant="contained" color="success" size="small">
+                <Button variant="contained" color="success" size="small" onClick={() => disPatch(addToBasket(item))}>
                 <ShoppingCartIcon/>
                 </Button>
               </CardActions>

@@ -12,7 +12,6 @@ const CategoryBar = () => {
     try {
       const res = await axios("https://fakestoreapi.com/products/categories")
       setCategories(res.data)
-      console.log(res)
     } catch (error) {
       console.log(error)
     }
