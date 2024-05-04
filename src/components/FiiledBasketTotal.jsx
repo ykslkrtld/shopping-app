@@ -40,7 +40,7 @@ const FiiledBasketTotal = () => {
                   {item.category}
                 </Typography>
               <CardActions>
-                <Button variant="contained" color="success" size="small" onClick={() => disPatch(addToBasket(item))}>
+                <Button variant="contained" color="success" size="small">
                 <ShoppingCartIcon/>
                 </Button>
               </CardActions>
