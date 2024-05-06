@@ -25,7 +25,7 @@ const Home = () => {
 
   return (
     <div>
-      <CategoryBar />
+      <CategoryBar style={{}} />
       <ProductCard products={products} />
     </div>
   );

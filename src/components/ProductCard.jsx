@@ -15,6 +15,7 @@ export default function ProductCard({products}) {
   const disPatch = useDispatch()
   const {basket} = useSelector((state) => state)
   console.log(basket)
+  
   return (
     <Container align="center">
       <Typography variant="h3" color="red" m={3}>
@@ -23,7 +24,7 @@ export default function ProductCard({products}) {
       <Grid container justifyContent="center" spacing={3}>
         {products.map((item) => (
           <Grid key={item.id} item sm={6} md={4} lg={3}>
-            <Card sx={{height:"100%", width:"18rem"}}>
+            <Card sx={{height:"100%", width:"18rem", position:"relative"}}>
               <CardMedia
                 component="img"
                 image={item?.image}
@@ -32,7 +33,7 @@ export default function ProductCard({products}) {
                 sx={{objectFit:"contain"}}
               />
               <CardContent sx={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
-                <Typography variant="body1" component="div" textAlign="left" noWrap>
+                <Typography variant="body1" component="div" textAlign="left" width={"70%"}>
                   {item.title}
                 </Typography> 
                 <Typography variant="body1" color="text.secondary">
@@ -40,11 +41,11 @@ export default function ProductCard({products}) {
                 </Typography>
               </CardContent>
               <CardContent sx={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
-                <Typography >
+                <Typography sx={{position:"absolute", bottom:"10px", left:"10px"}}>
                   {item.category}
                 </Typography>
               <CardActions>
-                <Button variant="contained" color="success" size="small" onClick={() => disPatch(addToBasket(item))}>
+                <Button variant="contained" color="success" size="small" onClick={() => disPatch(addToBasket(item))} sx={{position:"absolute", bottom:"10px", right:"10px"}}>
                 <ShoppingCartIcon/>
                 </Button>
               </CardActions>

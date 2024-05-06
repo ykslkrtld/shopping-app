@@ -9,9 +9,8 @@ import Typography from "@mui/material/Typography";
 import { Container } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { addToBasket } from "../store/basketReducer";
 
-const FiiledBasketTotal = () => {
+const FilledBasketTotal = () => {
     const disPatch = useDispatch()
     const {basket} = useSelector((state) => state)
   return (
@@ -53,4 +52,4 @@ const FiiledBasketTotal = () => {
   )
 }
 
-export default FiiledBasketTotal
+export default FilledBasketTotal

@@ -28,10 +28,11 @@ const CategoryBar = () => {
            row
            aria-labelledby="demo-row-radio-buttons-group-label"
            name="row-radio-buttons-group"
+           sx={{justifyContent:"center"}}
          >
-           <FormControlLabel value="all" control={<Radio />} label="ALL" />
+           <FormControlLabel value="all" control={<Radio />} label="All" />
            {categories?.map((category,i)=>(
-            <FormControlLabel key={i} value={category} control={<Radio />} label={category.toUpperCase()} />
+            <FormControlLabel key={i} value={category} control={<Radio />} label={category} sx={{textTransform:"capitalize"}} />
            ))}
          </RadioGroup>
        </FormControl>

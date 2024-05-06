@@ -6,9 +6,11 @@ import Typography from "@mui/material/Typography";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import { Badge, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function NavBar() {
   const navigate = useNavigate();
+  const {basket} = useSelector((state) => state)
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -16,10 +18,8 @@ export default function NavBar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             SamStore
           </Typography>
-          <Badge badgeContent={8} color="error">
-          <Button onClick={() => navigate("/basket")}>
-            <ShoppingBasketIcon />
-          </Button>
+          <Badge badgeContent={basket.length} color="error">
+            <ShoppingBasketIcon onClick={() => navigate("/basket")} />
           </Badge>
         </Toolbar>
       </AppBar>
