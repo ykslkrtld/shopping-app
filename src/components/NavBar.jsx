@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 
 export default function NavBar() {
   const navigate = useNavigate();
-  const {basket} = useSelector((state) => state)
+  const basket = useSelector((state) => state.basket)
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">

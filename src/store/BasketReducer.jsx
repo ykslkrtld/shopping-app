@@ -14,9 +14,9 @@ export const basketReducer = (state = initialState, { type, payload }) => {
   switch (type) {
 
   case addBasket:
-    return { 
-        basket: [...state.basket, payload ]
-     }
+    return state.basket.includes(payload)
+    ? (alert("Bu ürün zaten sepetinizde var!"), { ...state})
+    : { basket: [...state.basket, payload] };
 
   default:
     return state
