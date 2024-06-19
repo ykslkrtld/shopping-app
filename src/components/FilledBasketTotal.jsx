@@ -8,12 +8,11 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 
 const FilledBasketTotal = () => {
-  const disPatch = useDispatch();
+  const dispatch = useDispatch();
   const { basket } = useSelector((state) => state);
   return (
     <Container align="center">
