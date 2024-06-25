@@ -5,7 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import { Badge, Button } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export default function NavBar() {
@@ -14,12 +14,12 @@ export default function NavBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            SamStore
-          </Typography>
+        <Toolbar sx={{display:"flex", justifyContent:"space-between"}}>
+          <NavLink to={"/"} style={{ color: "white", textDecoration:"none" }}>
+            Yksl Store
+          </NavLink>
           <Badge badgeContent={basket.length} color="error">
-            <ShoppingBasketIcon onClick={() => navigate("/basket")} />
+            <ShoppingBasketIcon onClick={() => navigate("/basket")} sx={{cursor:"pointer"}} />
           </Badge>
         </Toolbar>
       </AppBar>
