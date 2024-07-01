@@ -9,6 +9,13 @@ export const addToBasket = (payload) => ({
   payload,
 })
 
+export const plusItem = "PLUSITEM" 
+
+export const plsItem = (payload) => ({
+  type: plusItem,
+  payload,
+})
+
 
 export const basketReducer = (state = initialState, { type, payload }) => {
   switch (type) {
@@ -24,6 +31,13 @@ export const basketReducer = (state = initialState, { type, payload }) => {
         basket: [...state.basket, { ...payload, quantity: 1 }]
       };
     }
+    case plusItem:
+      return {
+        ...state,
+        basket: state.basket.map((item) =>
+          item.id == payload ? { ...item, quantity: item.quantity + 1 } : item
+        ),
+      }
   default:
     return state
   }
