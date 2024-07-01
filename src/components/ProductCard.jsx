@@ -9,7 +9,7 @@ import { Container } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useDispatch, useSelector } from "react-redux";
-import { addToBasket } from "../store/basketReducer";
+import { addToBasket } from "../store/BasketReducer";
 
 export default function ProductCard({products}) {
   const disPatch = useDispatch()
