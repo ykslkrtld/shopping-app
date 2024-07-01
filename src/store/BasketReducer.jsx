@@ -16,6 +16,13 @@ export const plsItem = (payload) => ({
   payload,
 })
 
+export const minusItem = "MINUSITEM" 
+
+export const mnsItem = (payload) => ({
+  type: minusItem,
+  payload,
+})
+
 
 export const basketReducer = (state = initialState, { type, payload }) => {
   switch (type) {
@@ -37,6 +44,13 @@ export const basketReducer = (state = initialState, { type, payload }) => {
         basket: state.basket.map((item) =>
           item.id == payload ? { ...item, quantity: item.quantity + 1 } : item
         ),
+      }
+    case minusItem:
+      return {
+        ...state,
+        basket: state.basket.map((item) =>
+          item.id == payload ? { ...item, quantity: item.quantity - 1 } : item
+        ).filter((item) => item.quantity > 0),
       }
   default:
     return state

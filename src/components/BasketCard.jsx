@@ -10,7 +10,7 @@ import { Container } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import { plsItem } from "../store/BasketReducer";
+import { plsItem, mnsItem } from "../store/BasketReducer";
 
 const BasketCard = () => {
   const dispatch = useDispatch();
@@ -18,6 +18,10 @@ const BasketCard = () => {
 
   const handlePlus = (id) => {
     dispatch(plsItem(id))
+  }
+
+  const handleMinus = (id) => {
+    dispatch(mnsItem(id))
   }
 
 
@@ -63,7 +67,7 @@ const BasketCard = () => {
                 <CardActions
                   sx={{ position: "absolute", bottom: "0", left: "0" }}
                 >
-                  <Button>
+                  <Button onClick={() => handleMinus(item.id)}>
                     <RemoveIcon />
                   </Button>
                   <Typography>{item.quantity}</Typography>
