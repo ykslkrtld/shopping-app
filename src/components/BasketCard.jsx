@@ -10,7 +10,7 @@ import { Container } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import { plsItem, mnsItem } from "../store/BasketReducer";
+import { plsItem, mnsItem, rmvItem } from "../store/BasketReducer";
 
 const BasketCard = () => {
   const dispatch = useDispatch();
@@ -24,10 +24,14 @@ const BasketCard = () => {
     dispatch(mnsItem(id))
   }
 
+  const handleRemove = (id) => {
+    dispatch(rmvItem(id))
+  }
+
 
   return (
     <Container align="center">
-      <Grid container justifyContent="center" spacing={3} mt={3}>
+      <Grid container justifyContent="center" spacing={3} my={3}>
         {basket.map((item) => (
           <Grid key={item.id} item sm={6} md={4} lg={3}>
             <Card sx={{ height: "100%", width: "18rem", position: "relative" }}>
@@ -53,8 +57,8 @@ const BasketCard = () => {
                 >
                   {item.title}
                 </Typography>
-                <Typography variant="body1" color="text.secondary">
-                  {item.price}
+                <Typography variant="body1" color="error">
+                  {item.price} $
                 </Typography>
               </CardContent>
               <CardContent
@@ -78,7 +82,7 @@ const BasketCard = () => {
                 <CardActions
                   sx={{ position: "absolute", bottom: "0", right: "10px" }}
                 >
-                  <Button variant="contained" color="error" size="small">
+                  <Button variant="contained" color="error" size="small" onClick={() => handleRemove(item.id)}>
                     REMOVE
                   </Button>
                 </CardActions>

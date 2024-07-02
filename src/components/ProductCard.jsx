@@ -17,11 +17,11 @@ export default function ProductCard({products}) {
   console.log(basket)
   
   return (
-    <Container align="center">
+    <Container align="center" >
       <Typography variant="h3" color="red" m={3}>
         Products
       </Typography>
-      <Grid container justifyContent="center" spacing={3}>
+      <Grid container justifyContent="center" spacing={3} my={3}>
         {products.map((item) => (
           <Grid key={item.id} item sm={6} md={4} lg={3}>
             <Card sx={{height:"100%", width:"18rem", position:"relative"}}>
@@ -36,8 +36,8 @@ export default function ProductCard({products}) {
                 <Typography variant="body1" component="div" textAlign="left" width={"70%"}>
                   {item.title}
                 </Typography> 
-                <Typography variant="body1" color="text.secondary">
-                  {item.price}
+                <Typography variant="body1" color="error">
+                  {item.price} $
                 </Typography>
               </CardContent>
               <CardContent sx={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>

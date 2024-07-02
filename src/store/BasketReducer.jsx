@@ -23,6 +23,20 @@ export const mnsItem = (payload) => ({
   payload,
 })
 
+export const removeItem = "REMOVEITEM" 
+
+export const rmvItem = (payload) => ({
+  type: removeItem,
+  payload,
+})
+
+export const removeAll = "REMOVEALL" 
+
+export const rmvAll = (payload) => ({
+  type: removeAll,
+  payload,
+})
+
 
 export const basketReducer = (state = initialState, { type, payload }) => {
   switch (type) {
@@ -38,6 +52,7 @@ export const basketReducer = (state = initialState, { type, payload }) => {
         basket: [...state.basket, { ...payload, quantity: 1 }]
       };
     }
+
     case plusItem:
       return {
         ...state,
@@ -45,12 +60,27 @@ export const basketReducer = (state = initialState, { type, payload }) => {
           item.id == payload ? { ...item, quantity: item.quantity + 1 } : item
         ),
       }
+
     case minusItem:
       return {
         ...state,
         basket: state.basket.map((item) =>
           item.id == payload ? { ...item, quantity: item.quantity - 1 } : item
         ).filter((item) => item.quantity > 0),
+      }
+
+      case removeItem:
+      return {
+        ...state,
+        basket: state.basket.filter((item) =>
+          item.id != payload
+        ),
+      }
+
+      case removeAll:
+      return {
+        ...state,
+        basket: [],
       }
   default:
     return state
