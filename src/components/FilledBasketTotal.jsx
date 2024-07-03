@@ -13,7 +13,7 @@ const FilledBasketTotal = () => {
   };
 
   return (
-    <Container>
+    <Container sx={{marginTop:"5rem"}}>
       <BasketCard />
       <Box display="flex" justifyContent="space-between" my={5}>
         <Typography fontSize={"2rem"}>Sub Total:</Typography>

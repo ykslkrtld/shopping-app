@@ -24,7 +24,7 @@ const Home = () => {
   
 
   return (
-    <div>
+    <div style={{marginTop:"6rem"}}>
       <CategoryBar style={{}} />
       <ProductCard products={products} />
     </div>

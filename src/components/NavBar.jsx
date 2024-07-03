@@ -12,7 +12,7 @@ export default function NavBar() {
   const navigate = useNavigate();
   const basket = useSelector((state) => state.basket)
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box position='fixed' top={0} width={"100%"} zIndex={1}  sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar sx={{display:"flex", justifyContent:"space-between"}}>
           <NavLink to={"/"} style={{ color: "white", textDecoration:"none" }}>
