@@ -58,7 +58,7 @@ const BasketCard = () => {
                   {item.title}
                 </Typography>
                 <Typography variant="body1" color="error">
-                  {item.price} $
+                  {(item.price.toFixed(2))} $
                 </Typography>
               </CardContent>
               <CardContent

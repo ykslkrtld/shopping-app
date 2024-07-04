@@ -12,11 +12,15 @@ const FilledBasketTotal = () => {
     dispatch(rmvAll());
   };
 
+  const calculateTotal = () => {
+    return basket.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
+  };
+
   return (
     <Container sx={{marginTop:"5rem"}}>
       <BasketCard />
       <Box display="flex" justifyContent="space-between" my={5}>
-        <Typography fontSize={"2rem"}>Sub Total:</Typography>
+        <Typography fontSize={"2rem"}>Sub Total: ${calculateTotal()}</Typography>
         <Button
           variant="contained"
           color="error"

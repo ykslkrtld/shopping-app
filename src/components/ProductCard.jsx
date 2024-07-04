@@ -37,7 +37,7 @@ export default function ProductCard({products}) {
                   {item.title}
                 </Typography> 
                 <Typography variant="body1" color="error">
-                  {item.price} $
+                  {(item.price).toFixed(2)} $
                 </Typography>
               </CardContent>
               <CardContent sx={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
