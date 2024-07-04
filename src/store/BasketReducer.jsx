@@ -44,7 +44,7 @@ export const basketReducer = (state = initialState, { type, payload }) => {
   case addBasket:
     const existingItem = state.basket.find(item => item.id === payload.id);
     if (existingItem) {
-      alert("Bu ürün zaten sepetinizde bulunmaktadır.");
+      alert("This product is already in your cart.");
       return state;
     } else {
       return {
@@ -66,7 +66,7 @@ export const basketReducer = (state = initialState, { type, payload }) => {
         ...state,
         basket: state.basket.map((item) =>
           item.id == payload ? { ...item, quantity: item.quantity - 1 } : item
-        ).filter((item) => item.quantity > 0),
+        ),
       }
 
       case removeItem:

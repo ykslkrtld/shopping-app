@@ -33,8 +33,8 @@ const BasketCard = () => {
     <Container align="center">
       <Grid container justifyContent="center" spacing={3} my={3}>
         {basket.map((item) => (
-          <Grid key={item.id} item sm={6} md={4} lg={3}>
-            <Card sx={{ height: "100%", width: "18rem", position: "relative" }}>
+          <Grid key={item.id} item sm={6} md={4}>
+            <Card sx={{ height: "100%", width: "20rem", position: "relative" }}>
               <CardMedia
                 component="img"
                 image={item?.image}
@@ -71,7 +71,7 @@ const BasketCard = () => {
                 <CardActions
                   sx={{ position: "absolute", bottom: "0", left: "0" }}
                 >
-                  <Button onClick={() => handleMinus(item.id)}>
+                  <Button onClick={() => item.quantity > 1 && handleMinus(item.id)}>
                     <RemoveIcon />
                   </Button>
                   <Typography>{item.quantity}</Typography>

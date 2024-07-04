@@ -23,8 +23,8 @@ export default function ProductCard({products}) {
       </Typography>
       <Grid container justifyContent="center" spacing={3} my={3}>
         {products.map((item) => (
-          <Grid key={item.id} item sm={6} md={4} lg={3}>
-            <Card sx={{height:"100%", width:"18rem", position:"relative"}}>
+          <Grid key={item.id} item sm={6} md={4} >
+            <Card sx={{height:"100%", width:"20rem", position:"relative"}}>
               <CardMedia
                 component="img"
                 image={item?.image}
