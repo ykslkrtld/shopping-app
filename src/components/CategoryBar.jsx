@@ -6,7 +6,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import { Box } from '@mui/material';
 
-const CategoryBar = () => {
+const CategoryBar = ({onSelectCategory}) => {
   const [categories, setCategories] = useState([])
   const getCategories = async ()=> {
     try {
@@ -20,6 +20,10 @@ const CategoryBar = () => {
   useEffect(() => {
     getCategories()
   }, [])
+
+  const handleCategoryChange = (event) => {
+    onSelectCategory(event.target.value);
+  };
   
   return (
     <Box display="flex" justifyContent="center" marginTop={2}>
@@ -29,6 +33,8 @@ const CategoryBar = () => {
            aria-labelledby="demo-row-radio-buttons-group-label"
            name="row-radio-buttons-group"
            sx={{justifyContent:"center"}}
+           defaultValue="all"
+           onChange={handleCategoryChange}
          >
            <FormControlLabel value="all" control={<Radio />} label="All" />
            {categories?.map((category,i)=>(

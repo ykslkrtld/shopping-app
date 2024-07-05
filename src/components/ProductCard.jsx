@@ -11,7 +11,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useDispatch, useSelector } from "react-redux";
 import { addToBasket } from "../store/BasketReducer";
 
-export default function ProductCard({products}) {
+export default function ProductCard({filteredProducts}) {
   const disPatch = useDispatch()
   const {basket} = useSelector((state) => state)
   console.log(basket)
@@ -22,7 +22,7 @@ export default function ProductCard({products}) {
         Products
       </Typography>
       <Grid container justifyContent="center" spacing={3} my={3}>
-        {products.map((item) => (
+        {filteredProducts.map((item) => (
           <Grid key={item.id} item sm={6} md={4} >
             <Card sx={{height:"100%", width:"20rem", position:"relative"}}>
               <CardMedia
