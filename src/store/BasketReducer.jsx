@@ -1,3 +1,6 @@
+import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
+
+
 const initialState = {
     basket: [],
 }
@@ -44,9 +47,10 @@ export const basketReducer = (state = initialState, { type, payload }) => {
   case addBasket:
     const existingItem = state.basket.find(item => item.id === payload.id);
     if (existingItem) {
-      alert("This product is already in your cart.");
+      toastErrorNotify("This product is already in your cart.");
       return state;
     } else {
+      toastSuccessNotify("Added to cart.")
       return {
         ...state,
         basket: [...state.basket, { ...payload, quantity: 1 }]

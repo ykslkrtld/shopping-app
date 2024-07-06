@@ -10,12 +10,12 @@ import { Container } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import DeleteIcon from '@mui/icons-material/Delete';
 import { plsItem, mnsItem, rmvItem } from "../store/BasketReducer";
 
 const BasketCard = () => {
   const dispatch = useDispatch();
   const { basket } = useSelector((state) => state);
-
   const handlePlus = (id) => {
     dispatch(plsItem(id))
   }
@@ -71,8 +71,8 @@ const BasketCard = () => {
                 <CardActions
                   sx={{ position: "absolute", bottom: "0", left: "0" }}
                 >
-                  <Button onClick={() => item.quantity > 1 && handleMinus(item.id)}>
-                    <RemoveIcon />
+                  <Button onClick={() => {item.quantity > 1 ? handleMinus(item.id) : handleRemove(item.id)}}>
+                    {item.quantity <= 1 ? <DeleteIcon/> : <RemoveIcon />}
                   </Button>
                   <Typography>{item.quantity}</Typography>
                   <Button onClick={() => handlePlus(item.id)}>
@@ -82,9 +82,9 @@ const BasketCard = () => {
                 <CardActions
                   sx={{ position: "absolute", bottom: "0", right: "10px" }}
                 >
-                  <Button variant="contained" color="error" size="small" onClick={() => handleRemove(item.id)}>
-                    REMOVE
-                  </Button>
+                  {item.quantity > 1 && <Button variant="contained" color="error" size="small" onClick={() => handleRemove(item.id)}>
+                    {<DeleteIcon/>}
+                  </Button>}
                 </CardActions>
               </CardContent>
             </Card>
