@@ -17,8 +17,8 @@ export default function NavBar() {
           <NavLink to={"/"} style={{ color: "white", textDecoration:"none", fontWeight:"600" }}>
             Yksl Store
           </NavLink>
-          <Badge badgeContent={basket.length} color="error">
-            <ShoppingBasketIcon onClick={() => navigate("/basket")} sx={{cursor:"pointer"}} />
+          <Badge badgeContent={basket.length} onClick={() => navigate("/basket")} sx={{cursor:"pointer"}} color="error">
+            <ShoppingBasketIcon />
           </Badge>
         </Toolbar>
       </AppBar>
