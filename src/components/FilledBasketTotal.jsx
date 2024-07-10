@@ -23,12 +23,13 @@ const FilledBasketTotal = () => {
   return (
     <Container sx={{marginTop:"5rem"}}>
       <BasketCard />
-      <Box display="flex" justifyContent="space-between" my={5}>
-        <Typography fontSize={"2rem"}>Subtotal ( {totalProduct()} {totalProduct() > 1 ? "products" : "product"} ) : {calculateTotal()} $</Typography>
+      <Box display="flex" justifyContent="space-around" my={5}>
+        <Typography fontSize={"1.5rem"} border={"3px solid red"} borderRadius={3} padding={"0.5rem 1.5rem"}>Subtotal ( {totalProduct()} {totalProduct() > 1 ? "products" : "product"} ) : <span style={{color:"green"}}>{calculateTotal()} $</span></Typography>
         <Button
           variant="contained"
           color="error"
           size="large"
+          sx={{fontSize:"1.1rem", borderRadius:"0.8rem"}}
           onClick={handleRemoveAll}
         >
           Empty Cart

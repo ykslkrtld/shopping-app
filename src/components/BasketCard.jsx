@@ -10,24 +10,23 @@ import { Container } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteIcon from "@mui/icons-material/Delete";
 import { plsItem, mnsItem, rmvItem } from "../store/BasketReducer";
 
 const BasketCard = () => {
   const dispatch = useDispatch();
   const { basket } = useSelector((state) => state);
   const handlePlus = (id) => {
-    dispatch(plsItem(id))
-  }
+    dispatch(plsItem(id));
+  };
 
   const handleMinus = (id) => {
-    dispatch(mnsItem(id))
-  }
+    dispatch(mnsItem(id));
+  };
 
   const handleRemove = (id) => {
-    dispatch(rmvItem(id))
-  }
-
+    dispatch(rmvItem(id));
+  };
 
   return (
     <Container align="center">
@@ -57,8 +56,8 @@ const BasketCard = () => {
                 >
                   {item.title}
                 </Typography>
-                <Typography variant="body1" color="error">
-                  {(item.price.toFixed(2))} $
+                <Typography variant="body1" color="green">
+                  {item.price.toFixed(2)} $
                 </Typography>
               </CardContent>
               <CardContent
@@ -71,20 +70,35 @@ const BasketCard = () => {
                 <CardActions
                   sx={{ position: "absolute", bottom: "0", left: "0" }}
                 >
-                  <Button onClick={() => {item.quantity > 1 ? handleMinus(item.id) : handleRemove(item.id)}}>
-                    {item.quantity <= 1 ? <DeleteIcon/> : <RemoveIcon />}
+                  <Button
+                    onClick={() => {
+                      item.quantity > 1
+                        ? handleMinus(item.id)
+                        : handleRemove(item.id);
+                    }}
+                  >
+                    {item.quantity <= 1 ? (
+                      <DeleteIcon color="error" />
+                    ) : (
+                      <RemoveIcon color="error" />
+                    )}
                   </Button>
                   <Typography>{item.quantity}</Typography>
                   <Button onClick={() => handlePlus(item.id)}>
-                    <AddIcon />
+                    <AddIcon color="success" />
                   </Button>
                 </CardActions>
                 <CardActions
                   sx={{ position: "absolute", bottom: "0", right: "10px" }}
                 >
-                  {item.quantity > 1 && <Button variant="contained" color="error" size="small" onClick={() => handleRemove(item.id)}>
-                    {<DeleteIcon/>}
-                  </Button>}
+                  {item.quantity > 1 && (
+                    <Button
+                      size="small"
+                      onClick={() => handleRemove(item.id)}
+                    >
+                      {<DeleteIcon color="error" />}
+                    </Button>
+                  )}
                 </CardActions>
               </CardContent>
             </Card>
